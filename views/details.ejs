@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/nav.ejs') %>
+    <div class="details-content">
+        <h1><%= task.task %></h1>
+    <div class="desc">
+        <p><%= task.description %></p>
+    </div>
+    </div>
+    <div class="container">
+        <a class="delete" data-doc="<%= task._id %>">Done</a>
+    </div>
+    <script>
+        const trash = document.querySelector('.delete')
+
+        trash.addEventListener('click', (e) => {
+            const endpoint = `/tasks/${trash.dataset.doc}`
+
+            fetch(endpoint, {
+                method: 'DELETE'
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = '/tasks'; // Redirect to the task list after deletion
+                } else {
+                    console.error('Failed to delete the task');
+                }
+            })
+            .catch(err => console.error(err));
+        });
+            
+        
+            
+    </script>
+    <%- include('../partials/footer.ejs') %>  
+
+</body>
+</html>

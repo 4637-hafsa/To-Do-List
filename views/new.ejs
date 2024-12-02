@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head.ejs') %>   
+
+<body>
+    <%- include('../partials/nav.ejs') %>   
+
+        
+         <h1>Add a new task</h1>
+        <form action="/tasks" method="POST" class="form-content">
+            <label for="task">Task:</label>
+            <input type="text" id="task" name="task" required>
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" required>
+            <br><br>
+            <button type="submit">Submit Task</button>
+        </form>
+
+        <%- include('../partials/footer.ejs') %>   
+
+</body>
+</html>

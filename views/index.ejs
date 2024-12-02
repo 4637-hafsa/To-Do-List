@@ -1,0 +1,23 @@
+
+<%- include('../partials/head.ejs') %>   
+
+
+<body>
+    <%- include('../partials/nav.ejs') %>   
+<div class="task-content">
+    <h1>All Tasks</h1>
+</div>
+<% if (tasks.length > 0){ %>
+    <% tasks.forEach(task => { %>
+        <a class="single" href="/tasks/<%= task._id %>">
+        <h3 class="task"><%= task.task %></h3>
+    </a>
+
+  <%  }) %>
+<% } else { %>
+    <p><%= 'No tasks available' %></p>
+    <% } %>
+    <%- include('../partials/footer.ejs') %>  
+
+     
+</body>
